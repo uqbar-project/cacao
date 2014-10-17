@@ -1,43 +1,15 @@
-package org.uqbar.cacao.dimensions
+package org.uqbar.cacao.dimensions.immutable
+
+import java.lang.Math.max
+import java.lang.Math.min
+
+import scala.Double.NaN
 
 import org.uqbar.math.vectors.Vector
-import Double.NaN
-import Math.min
-import Math.max
-import java.security.InvalidParameterException
 
 trait Scalable[T <: Scalable[T]] { self: T =>
 
 	def size: Vector
-
-	//*********************************************************************************************
-	// MUTABLE
-	//*********************************************************************************************
-
-	def scaleBy(x: Double = 1, y: Double = 1)
-
-	def scaleBy(scaleRatios: Vector): Unit = scaleBy(scaleRatios.x, scaleRatios.y)
-	def scaleBy(ratio: Double): Unit = scaleBy(ratio, ratio)
-
-	def scaleTo(targetSize: Vector): Unit = scaleTo(targetSize.x, targetSize.y)
-	def scaleTo(width: Double = NaN, height: Double = NaN): Unit =
-		if (width.isNaN && height.isNaN) throw new InvalidParameterException
-		else if (width.isNaN) scaleBy(height / size.y)
-		else if (height.isNaN) scaleBy(width / size.x)
-		else scaleBy(width / size.x, height / size.y)
-
-	def scaleHorizontallyTo(width: Double): Unit = scaleBy(width / size.x)
-	def scaleVerticallyTo(height: Double): Unit = scaleBy(height / size.y)
-
-	def scaleToFit(size: Vector): Unit = scaleToFit(size.x, size.y)
-	def scaleToFit(width: Double, height: Double): Unit = scaleBy(min(width / size.x, height / size.y))
-
-	def scaleToCover(size: Vector): Unit = scaleToCover(size.x, size.y)
-	def scaleToCover(width: Double, height: Double): Unit = if (width * height == 0) scaleBy(0) else scaleBy(max(width / size.x, height / size.y))
-
-	//*********************************************************************************************
-	// IMMUTABLE
-	//*********************************************************************************************
 
 	def scaledBy(x: Double = 1, y: Double = 1): T
 
