@@ -5,9 +5,7 @@ import org.scalatest.FreeSpec
 import org.scalatest.Matchers
 import org.scalatest.matchers.MatchResult
 import org.scalatest.matchers.Matcher
-import org.uqbar.math.vectors.Origin
-import org.uqbar.math.vectors.Touple_to_Vector
-import org.uqbar.math.vectors.Vector
+import org.uqbar.math.spaces.R2._
 
 class ScalableTest extends FreeSpec with Matchers with BeforeAndAfter {
 

@@ -1,4 +1,4 @@
 package org.uqbar.cacao.dimensions.immutable
 
-import org.uqbar.math.vectors.Vector
+import org.uqbar.math.spaces.R2._
 

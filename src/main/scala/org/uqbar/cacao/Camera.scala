@@ -1,16 +1,17 @@
 package org.uqbar.cacao
 
-import org.uqbar.math.vectors._
+import org.uqbar.math.spaces.R2._
 
 object Camera {
 	def apply(translation: Vector = (0, 0), screenPosition: Vector = (0, 0), screenSize: Vector = (Int.MaxValue, Int.MaxValue), zoom: Vector = (1, 1)) = {
 		val instance = new Camera
-		instance.translation.set(translation)
-		instance.screenPosition.set(screenPosition)
-		instance.screenSize.set(screenSize)
-		instance.zoom.set(zoom)
+    //TODO: Mutable
+		instance.translation = translation
+		instance.screenPosition = screenPosition
+		instance.screenSize = screenSize
+		instance.zoom = zoom
 		instance
 	}
 }
 
-class Camera(var translation: MutableVector = (0, 0), var screenPosition: MutableVector = (0, 0), var screenSize: MutableVector = (Int.MaxValue, Int.MaxValue), var zoom: MutableVector = (1, 1))
+class Camera(var translation: Vector = (0, 0), var screenPosition: Vector = (0, 0), var screenSize: Vector = (Int.MaxValue, Int.MaxValue), var zoom: Vector = (1, 1))

@@ -1,6 +1,6 @@
 package org.uqbar.cacao
 
-import org.uqbar.math.vectors.Vector
+import org.uqbar.math.spaces.R2._
 
 trait Shape
 

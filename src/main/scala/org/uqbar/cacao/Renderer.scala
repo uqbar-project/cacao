@@ -1,6 +1,6 @@
 package org.uqbar.cacao
 
-import org.uqbar.math.vectors._
+import org.uqbar.math.spaces.R2._
 
 trait Renderer {
 	protected var _camera: Camera = Camera()

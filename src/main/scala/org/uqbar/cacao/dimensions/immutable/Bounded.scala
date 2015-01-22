@@ -1,12 +1,11 @@
 package org.uqbar.cacao.dimensions.immutable
 
-import org.uqbar.math.vectors._
-import org.uqbar.math.vectors.Vector
+import org.uqbar.math.spaces.R2._
 
 object Bounded {
 	def apply(position: Vector)(aSize: Vector) = new Bounded {
-		def top = position.y
-		def left = position.x
+		def top = position(Y)
+		def left = position(X)
 		def size = aSize
 	}
 }
@@ -15,10 +14,10 @@ trait Bounded {
 	def left: Double
 	def size: Vector
 
-	lazy val bottom = top + size.y
-	lazy val right = left + size.x
-	lazy val half = left + size.x / 2
-	lazy val middle = top + size.y / 2
+	lazy val bottom = top + size(Y)
+	lazy val right = left + size(X)
+	lazy val half = left + size(X) / 2
+	lazy val middle = top + size(Y) / 2
 
 	lazy val topLeft: Vector = (left, top)
 	lazy val topHalf: Vector = (half, top)
